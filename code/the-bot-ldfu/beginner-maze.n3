@@ -20,29 +20,33 @@
 
 # just go in all directions
 {
-   ?x maze:east ?y .
+   ?x maze:path ?y .
 } => {
   [] http:mthd httpm:GET ; 
      http:requestURI ?y .
 } .
 
+# any direction is a path
 {
-   ?x maze:west ?y .
+  ?x maze:south ?y .
 } => {
-  [] http:mthd httpm:GET ; 
-     http:requestURI ?y .
+  ?x maze:path ?y .
 } .
 
 {
-   ?x maze:south ?y .
+  ?x maze:east ?y .
 } => {
-  [] http:mthd httpm:GET ; 
-     http:requestURI ?y .
+  ?x maze:path ?y .
 } .
 
 {
-   ?x maze:north ?y .
+  ?x maze:north ?y .
 } => {
-  [] http:mthd httpm:GET ; 
-     http:requestURI ?y .
+  ?x maze:path ?y .
+} .
+
+{
+  ?x maze:west ?y .
+} => {
+  ?x maze:path ?y .
 } .
