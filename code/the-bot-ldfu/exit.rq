@@ -1,0 +1,6 @@
+PREFIX maze: <https://kaefer3000.github.com/2021-02-dagstuhl/vocab#>
+
+SELECT ?x ?exit
+WHERE {
+ ?x maze:exit ?exit .
+}
